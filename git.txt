@@ -1,0 +1,6 @@
+git status
+git add ansible.cfg
+git status
+git commit -m "first version of ansible.cfg"
+git push origin main
+git status
