@@ -4,3 +4,4 @@
 another edit
 ansible all -m apt -a name=vim-nox --become --ask-become-pass
 ansible all -m apt -a name=ninvaders --become --ask-become-pass
+ansible all -m apt -a "update_cache=true" --become --ask-become-pass
