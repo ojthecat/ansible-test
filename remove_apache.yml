@@ -4,21 +4,12 @@
   become: true
   tasks:
     
-  - name: remove libapache mod2 php package
+  - name: remove libapache-mod2-php php and apache2 package2
     apt:
-      name: libapache-mod2-php
-      state: absent
-    when: ansible_distribution == "Ubuntu"
-
-  - name: remove php package
-    apt:
-      name: php
-      state: absent
-    when: ansible_distribution == "Ubuntu"
-
-  - name: remove apache2 package
-    apt:
-      name: apache2
+      name: 
+        - libapache-mod2-php
+        - php
+        - apache2
       state: absent
     when: ansible_distribution == "Ubuntu"
 
