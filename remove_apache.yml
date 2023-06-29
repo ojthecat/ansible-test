@@ -8,13 +8,17 @@
     apt:
       name: libapache-mod2-php
       state: absent
+    when: ansible_distribution == "Ubuntu"
 
   - name: remove php package
     apt:
       name: php
       state: absent
+    when: ansible_distribution == "Ubuntu"
 
   - name: remove apache2 package
     apt:
       name: apache2
       state: absent
+    when: ansible_distribution == "Ubuntu"
+
