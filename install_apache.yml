@@ -13,6 +13,11 @@
       name: apache2
       state: latest
 
+  - name: install php
+    apt:
+      name: php
+      state: latest
+
   - name: add php support for apache
     apt:
       name: libapache2-mod-php

@@ -9,6 +9,11 @@
       name: libapache-mod2-php
       state: absent
 
+  - name: remove php package
+    apt:
+      name: php
+      state: absent
+
   - name: remove apache2 package
     apt:
       name: apache2
