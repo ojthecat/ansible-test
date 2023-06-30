@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install qemu-guest-agent
+    package:
+      name: 
+        - qemu-guest-agent
+      state: latest
+      update_cache: yes
+
+

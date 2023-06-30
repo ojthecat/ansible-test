@@ -4,12 +4,13 @@
   become: true
   tasks:
 
-  - name: install apache2 php and libapache2-mod-php packages
+  - name: install qemu-guest-agent apache and php
     package:
-      name: 
+      name:
+        - "{{ qemu_agent }}"
         - "{{ apache_package }}"
         - "{{ php }}"
-        - "{{ php_package }}"
+        - "{{ php_package }}" 
       state: latest
       update_cache: yes
 
