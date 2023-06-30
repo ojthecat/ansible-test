@@ -1,6 +1,11 @@
-10.1.101.201 apache_package=apache2 php=php php_package=libapache2-mod-php qemu_agent=qemu-guest-agent
-10.1.101.202 apache_package=apache2 php=php php_package=libapache2-mod-php qemu_agent=qemu-guest-agent
-10.1.101.209 apache_package=apache2 php=php php_package=libapache2-mod-php qemu_agent=qemu-guest-agent
-10.1.101.210 apache_package=apache2 php=php php_package=libapache2-mod-php qemu_agent=qemu-guest-agent
-10.1.101.164 apache_package=apache2 php=php php_package=libapache2-mod-php qemu_agent=qemu-guest-agent
+[web_servers]
+10.1.101.201
+10.1.101.202
+10.1.101.209
+
+[db_servers]
+10.1.101.210
+
+[file_servers]
+10.1.101.164
  

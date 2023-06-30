@@ -4,12 +4,14 @@
   become: true
   tasks:
     
-  - name: remove libapache-mod2-php php and apache2 package2
+  - name: remove libapache-mod2-php php apache2 package2 and mariadb-server packages
     package:
       name: 
-        - "{{ apache_package }}"
-        - "{{ php }}"
-        - "{{ php_package }}"
+        - apache2
+        - php
+        - libapache2-mod-php
+        - mariadb-server
+        - samba
       state: absent
 
 
