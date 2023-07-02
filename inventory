@@ -1,7 +1,11 @@
 [ansible_servers]
 localhost ansible_connection=local
 
+[terraform_servers]
+10.1.101.212
+
 [web_servers]
+10.1.101.165
 10.1.101.201
 10.1.101.202
 10.1.101.209
@@ -12,3 +16,6 @@ localhost ansible_connection=local
 [file_servers]
 10.1.101.164
  
+[other_servers]
+10.1.101.165
+

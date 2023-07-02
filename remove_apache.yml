@@ -4,7 +4,7 @@
   become: true
   tasks:
     
-  - name: remove libapache-mod2-php php apache2 package2 and mariadb-server packages
+  - name: remove libapache-mod2-php php apache2 package2 mariadb-server and sambe packages
     package:
       name: 
         - apache2
