@@ -12,6 +12,7 @@
         - libapache2-mod-php
         - mariadb-server
         - samba
+        - nfs-common
         - cockpit
       state: absent
 
