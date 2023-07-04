@@ -3,10 +3,10 @@
 - hosts: all
   become: true
   tasks:
-    
+
   - name: remove libapache-mod2-php php apache2 package2 mariadb-server samba and cockpit packages
     package:
-      name: 
+      name:
         - apache2
         - php
         - libapache2-mod-php

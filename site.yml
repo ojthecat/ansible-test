@@ -5,26 +5,40 @@
   pre_tasks:
 
   - name: install updates (Ubuntu)
+    tags: always
     apt:
       upgrade: dist
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: install qemu-guest-agent and cockpit
+  - name: install cockpit and nfs-common
+    tags: always
     package:
-      name: 
-         - qemu-guest-agent
+      name:
          - cockpit
          - nfs-common
       state: latest
-      update_cache: yes 
-    when: ansible_distribution == "Ubuntu" 
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: qemu_virtual_machines
+  become: true
+  tasks:
+
+  - name: install qemu-guest-agent
+    tags: qemu-guest
+    package:
+      name: qemu-guest-agent
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
 
 - hosts: web_servers
   become: true
   tasks:
-  
+
   - name: install apache and php
+    tags: apache, ubuntu, web_servers
     apt:
       name:
         - apache2
@@ -38,24 +52,27 @@
   tasks:
 
   - name: install mariadb package
-    apt: 
-      name: 
+    tags: db, mariadb, ubuntu
+    apt:
+      name:
         - mariadb-server
       state: latest
-    when: ansible_distribution == "Ubuntu" 
+    when: ansible_distribution == "Ubuntu"
 
 - hosts: file_servers
   become: true
-  tasks:  
+  tasks:
 
   - name: install samba and packages
+    tags: file_servers, samba
     apt:
-      name:  
+      name:
         - samba
       state: latest
     when: ansible_distribution == "Ubuntu"
 
-- hosts: ubuntu_laptops
+- hosts: laptops
+  tags: laptops, wireguard
   become: true
   tasks:
 

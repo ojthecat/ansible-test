@@ -19,5 +19,15 @@ localhost ansible_connection=local
 [other_servers]
 10.1.101.165
 
-[ubuntu_laptops]
+[laptops]
 10.1.100.42
+
+[qemu_virtual_machines]
+10.1.101.165
+10.1.101.201
+10.1.101.202
+10.1.101.209
+10.1.101.210
+10.1.101.164
+10.1.101.212
+localhost ansible_connection=local
