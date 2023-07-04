@@ -54,3 +54,14 @@
         - samba
       state: latest
     when: ansible_distribution == "Ubuntu"
+
+- hosts: ubuntu_laptops
+  become: true
+  tasks:
+
+  - name: install wireguard client
+    apt:
+      name:
+        - wireguard
+      state: latest
+    when: ansible_distribution == "Ubuntu"
