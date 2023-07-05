@@ -4,10 +4,46 @@
   become: true
   pre_tasks:
 
+- hosts: all
+  become: true
+  tasks:
+
+  - name: create sushi user
+    tags: always
+    user:
+      name: sushi
+      groups: root
+
+  - name: add ssh key for sushi
+    tags: always
+    authorized_key:
+      user: sushi
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICGrvRt3vNFeqQ5sLVYN/0UCeslsI59hjB4t5g4RyeCm ansible"
+
+  - name: add sudoers file for sushi
+    tags: always
+    copy:
+      src: sudoer_sushi
+      dest: /etc/sudoers.d/sushi
+      owner: root
+      group: root
+      mode: 0440
+
+
   - name: install updates (Ubuntu)
     tags: always
     apt:
       upgrade: dist
+      update_cache: yes
+      force_apt_get: yes
+    when: ansible_distribution == "Ubuntu"
+
+
+  - name: upgrade all packages on machines(Ubuntu)
+    tags: always
+    apt:
+      name: "*"
+      state: latest
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 

@@ -21,6 +21,7 @@ localhost ansible_connection=local
 
 [laptops]
 10.1.100.42
+10.1.100.52
 
 [qemu_virtual_machines]
 10.1.101.165

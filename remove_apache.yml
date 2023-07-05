@@ -16,6 +16,11 @@
         - cockpit
       state: absent
 
+  - name: remove user sushi
+    ansible.builtin.user:
+      name: sushi
+      state: "absent"
+      remove: true
 
   - name: Clean unwanted olderstuff
     apt:
